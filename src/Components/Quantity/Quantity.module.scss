@@ -1,0 +1,6 @@
+@import "./../../Assets/mixins.scss";
+@import "./../../Assets/palette.scss";
+
+.Quantity {
+    @include flex;
+}

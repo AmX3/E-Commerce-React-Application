@@ -1,0 +1,26 @@
+@import "./../../Assets/mixins.scss";
+@import "./../../Assets/palette.scss";
+
+.Product {
+    border-radius: 30px;
+    transition: all 0.25s;
+    border: 2px solid $search-border;
+    padding: 15px;
+
+    &__Img {
+        @include height-and-width(300px, 300px);
+    }
+    &__Name {
+        font-family: $heading-font;
+        @include text-style(18px, bold, 27px);
+    }
+    &__Info {
+        font-family: $body-font;
+        @include text-style(16px, 300, 27px);
+    }
+}
+
+.Product:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 10px $box-shadow;
+}

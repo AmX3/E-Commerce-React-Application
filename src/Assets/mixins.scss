@@ -1,0 +1,48 @@
+@import "./palette.scss";
+
+@mixin flex(
+    $just-cont: space-between,
+    $align-itm: center,
+    $flx-dir: row,
+    $flex-wrap: nowrap
+) {
+    display: flex;
+    justify-content: $just-cont;
+    align-items: $align-itm;
+    flex-direction: $flx-dir;
+
+    flex-wrap: $flex-wrap;
+}
+
+@mixin background-and-color($background, $color) {
+    background-color: $background;
+    color: $color;
+}
+
+@mixin text-style(
+    $size,
+    $weight,
+    $height,
+    $spacing: 0.02em,
+    $transform: none,
+    $decoration: none,
+    $text-align: none
+) {
+    font-size: $size;
+    font-weight: $weight;
+    line-height: $height;
+    letter-spacing: $spacing;
+    text-transform: $transform;
+    text-decoration: $decoration;
+    text-align: $text-align;
+}
+
+@mixin padding-and-margin($padding, $margin) {
+    padding: $padding;
+    margin: $margin;
+}
+
+@mixin height-and-width($height, $width) {
+    height: $height;
+    width: $width;
+}

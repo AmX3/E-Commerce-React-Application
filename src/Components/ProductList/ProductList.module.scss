@@ -1,0 +1,18 @@
+@import "./../../Assets/mixins.scss";
+@import "./../../Assets/palette.scss";
+
+.ProductList {
+    margin: 60px 10px;
+    &__Heading {
+        text-align: center;
+        font-family: $heading-font;
+        @include text-style(18px, 300, 27px, $spacing: 0.02em);
+        padding-bottom: 40px;
+    }
+
+    &__Grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+}

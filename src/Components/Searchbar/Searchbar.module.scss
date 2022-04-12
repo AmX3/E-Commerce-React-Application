@@ -1,0 +1,29 @@
+@import "./../../Assets/mixins.scss";
+@import "./../../Assets/palette.scss";
+
+.Searchbar {
+    &__Container {
+        @include flex;
+        border: 1px solid $search-border;
+        border-radius: 30px;
+        padding: 10px;
+        width: 300px;
+        background: $white;
+    }
+
+    &__Container:hover {
+        box-shadow: 0 0 10px $box-shadow;
+    }
+
+    &__Icon {
+        color: $box-shadow;
+    }
+
+    &__Input {
+        border: none;
+        outline: none;
+        width: 100%;
+        @include text-style(16px, 300, 27px, $spacing: 0.02em);
+        font-family: $body-font;
+    }
+}
