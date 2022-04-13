@@ -1,5 +1,4 @@
-import { products } from "./Products.js";
-import firestore from "./../firebase.js";
+import firestore from "./firebase";
 
 // CRUD - Create Read Update Delete
 
@@ -15,7 +14,7 @@ export const seedProducts = async () => {
     }
 
     // Grabbing every product object in our array and adding it to the product collection
-    const promises = products.map(async (product) => {
+    const promises = data.map(async (product) => {
         return await collectionRef.add(product);
     });
 
@@ -39,11 +38,20 @@ export const getProducts = async () => {
     return data;
 };
 
-// Update
+// Update a single document in our DB
 
 export const updateProducts = async (id, record) => {
     // record = data we want to update our doc with
-    const collectionRef = firestore.collection("cakes");
+    const collectionRef = firestore.collection("products");
     const docRef = collectionRef.doc(id);
     await docRef.update(record);
+};
+
+// DELETE - deleting a student in our DB
+
+export const deleteProducts = async (id) => {
+    // Getting CollectionRef then DocRef
+    const docRef = firestore.collection("products").doc(id);
+    // Deleting the Doc refered in the Reference
+    await docRef.delete();
 };

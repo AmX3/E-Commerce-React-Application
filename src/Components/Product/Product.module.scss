@@ -10,6 +10,7 @@
     &__Img {
         @include height-and-width(300px, 300px);
     }
+
     &__Name {
         font-family: $heading-font;
         @include text-style(18px, bold, 27px);
@@ -17,6 +18,15 @@
     &__Info {
         font-family: $body-font;
         @include text-style(16px, 300, 27px);
+    }
+}
+
+.FavCake {
+    &_On {
+        color: red;
+    }
+    &_Off {
+        color: #f0eee0;
     }
 }
 

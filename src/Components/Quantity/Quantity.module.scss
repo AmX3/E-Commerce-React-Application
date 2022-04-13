@@ -2,5 +2,5 @@
 @import "./../../Assets/palette.scss";
 
 .Quantity {
-    @include flex;
+    @include flex($just-cont: space-around);
 }
