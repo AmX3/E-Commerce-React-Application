@@ -8,14 +8,15 @@ const Navbar = () => {
     return (
         <nav className={styles.Navbar}>
             <ul className={styles.Navbar__List}>
+                <img
+                    src="https://cakes.koidessertbar.com.au/uploads/b/76cc1f40-72fd-11ea-bca1-9909aa416615/logo.png?width=400"
+                    className={styles.Navbar__Icon}
+                />
                 <Link to="/" className={styles.Navbar__Links}>
                     Home
                 </Link>
                 <Link to="/Products" className={styles.Navbar__Links}>
-                    Products
-                </Link>
-                <Link to="/SavedProducts" className={styles.Navbar__Links}>
-                    Saved Products
+                    Celebration Cakes
                 </Link>
                 <Searchbar />
                 <FontAwesomeIcon

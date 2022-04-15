@@ -2,13 +2,15 @@
 @import "./../../Assets/palette.scss";
 
 .Product {
-    border-radius: 30px;
     transition: all 0.25s;
-    border: 2px solid $search-border;
     padding: 15px;
 
     &__Img {
         @include height-and-width(300px, 300px);
+        border: 1px solid $black;
+        cursor: pointer;
+        display: block;
+        text-align: center;
     }
 
     &__Name {
@@ -17,20 +19,33 @@
     }
     &__Info {
         font-family: $body-font;
-        @include text-style(16px, 300, 27px);
+        @include text-style(16px, 400, 27px);
+    }
+    &__Icon {
+        @include flex;
     }
 }
 
 .FavCake {
     &_On {
         color: red;
+        cursor: pointer;
     }
     &_Off {
-        color: #f0eee0;
+        color: #ffc857;
+        cursor: pointer;
     }
 }
 
 .Product:hover {
     transform: scale(1.03);
     box-shadow: 0 0 10px $box-shadow;
+}
+
+.Modal {
+    &__Img {
+        @include height-and-width(450px, 500px);
+        display: block;
+        margin: 0 auto;
+    }
 }

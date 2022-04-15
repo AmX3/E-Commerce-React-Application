@@ -6,19 +6,17 @@ import SearchProvider from "./Context/SearchContext";
 
 const App = () => {
     return (
-        <div>
-            <div className={styles.App}>
-                <BrowserRouter basename="/E-Commerce-React-Application">
-                    <SearchProvider>
-                        <Routes>
-                            <Route path="/" element={<Home />}></Route>
-                            <Route
-                                path="/Products"
-                                element={<ProductPage />}></Route>
-                        </Routes>
-                    </SearchProvider>
-                </BrowserRouter>
-            </div>
+        <div className={styles.App}>
+            <BrowserRouter basename="/E-Commerce-React-Application">
+                <SearchProvider>
+                    <Routes>
+                        <Route path="/" element={<Home />}></Route>
+                        <Route
+                            path="/Products"
+                            element={<ProductPage />}></Route>
+                    </Routes>
+                </SearchProvider>
+            </BrowserRouter>
         </div>
     );
 };

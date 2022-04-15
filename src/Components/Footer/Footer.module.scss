@@ -1,0 +1,9 @@
+@import "./../../Assets/mixins.scss";
+@import "./../../Assets/palette.scss";
+
+.Footer {
+    &__Heading {
+        text-align: center;
+        margin: 20px 0;
+    }
+}

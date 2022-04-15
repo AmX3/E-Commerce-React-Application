@@ -43,10 +43,7 @@ const ProductList = () => {
 
     return (
         <div className={styles.ProductList}>
-            <h4 className={styles.ProductList__Heading}>
-                <strong>Currently displayed: </strong>
-                {filteredProducts.length} Cakes
-            </h4>
+            <h3 className={styles.ProductList__Heading}>Shop All</h3>
             <div className={styles.ProductList__Grid}>
                 {filteredProducts.map((product) => {
                     return (

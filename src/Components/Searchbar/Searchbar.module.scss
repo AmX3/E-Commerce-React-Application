@@ -6,7 +6,7 @@
         @include flex;
         border: 1px solid $search-border;
         border-radius: 30px;
-        padding: 10px;
+        padding: 5px 10px;
         width: 300px;
         background: $white;
     }
@@ -23,7 +23,7 @@
         border: none;
         outline: none;
         width: 100%;
-        @include text-style(16px, 300, 27px, $spacing: 0.02em);
+        @include text-style(14px, 300, 27px, $spacing: 0.02em);
         font-family: $body-font;
     }
 }
