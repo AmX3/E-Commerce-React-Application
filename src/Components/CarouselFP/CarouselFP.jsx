@@ -1,20 +1,16 @@
-import React from "react";
 import { Carousel } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import styles from "./CarouselFP.module.scss";
 import Yuzu from "./../../Images/Yuzu.jpeg";
 import Mango from "./../../Images/Mango.jpeg";
 import Strawberry from "./../../Images/Strawberry.jpeg";
 import Raspberry from "./../../Images/Raspberry.jpeg";
-
-// https://www.tutsmake.com/react-bootstrap-carousel-slider-tutorial/
 
 const CarouselFP = () => {
     return (
         <div className="container-fluid">
             <div className="row">
                 <div className="col-15">
-                    <Carousel fade>
+                    <Carousel fade data-interval="3000">
                         <Carousel.Item>
                             <img
                                 className="d-block w-100 "

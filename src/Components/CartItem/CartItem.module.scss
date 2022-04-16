@@ -1,0 +1,29 @@
+@import "./../../Assets/mixins.scss";
+@import "./../../Assets/palette.scss";
+
+.CartItem {
+    &__Main {
+        @include flex($align-itm: none, $just-cont: space-between);
+        gap: 50px;
+        width: 1000px;
+        font-family: $body-font;
+        @include text-style(16px, 400, 27px);
+    }
+
+    &__Heading {
+        font-family: $heading-font;
+        @include text-style(18px, bold, 27px);
+    }
+
+    &__Snapshot {
+        @include flex(
+            $just-cont: space-evenly,
+            $flx-dir: column,
+            $align-itm: none
+        );
+    }
+
+    &__Img {
+        @include height-and-width(250px, 250px);
+    }
+}

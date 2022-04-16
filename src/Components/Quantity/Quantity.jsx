@@ -3,25 +3,30 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleMinus } from "@fortawesome/free-solid-svg-icons";
 import { faCirclePlus } from "@fortawesome/free-solid-svg-icons";
 
-const Quantity = ({ onChange, value }) => {
+const Quantity = ({ quantity, onDecrement, onIncrement }) => {
+    // Quantity cannot be negative
+    const decrement = () => {
+        if (quantity !== 0) onDecrement();
+    };
+
+    const increment = () => {
+        onIncrement();
+    };
+
     return (
         <div className={styles.Quantity}>
             <FontAwesomeIcon
                 icon={faCircleMinus}
-                className={styles.Searchbar__Icon}
+                className={styles.Quantity__Icon}
                 size="lg"
-                onClick={() => {
-                    onChange(value - 1);
-                }}
+                onClick={decrement}
             />
-            <p>{value}</p>
+            <p>{quantity}</p>
             <FontAwesomeIcon
                 icon={faCirclePlus}
-                className={styles.Searchbar__Icon}
+                className={styles.Quantity__Icon}
                 size="lg"
-                onClick={() => {
-                    onChange(value + 1);
-                }}
+                onClick={increment}
             />
         </div>
     );

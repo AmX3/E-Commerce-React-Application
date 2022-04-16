@@ -1,18 +1,22 @@
-import { useState, useEffect } from "react";
+import { useState, useContext } from "react";
 import Quantity from "../Quantity";
 import styles from "./Product.module.scss";
+import "bootstrap/dist/css/bootstrap.min.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCakeCandles } from "@fortawesome/free-solid-svg-icons";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { Modal } from "react-bootstrap";
 import { Button } from "react-bootstrap";
-import "bootstrap/dist/css/bootstrap.min.css";
+import { CartContext } from "../../Context/CartItemContext";
+import { addCartItems } from "../../Services/CartItems";
 
-const Product = ({ product, onChange, toggleFav }) => {
-    // state variable for quantity => updated value or default value 0
-    const [quantity, setQuantity] = useState(product.quantity || 0);
+const Product = ({ product, toggleFav }) => {
+    // Creating a state variable to track quantity changes
+    const [quantity, setQuantity] = useState(0);
 
-    // FAVOURITE CAKE/S - adding style and alternating icon
+    const { onAddedToCart } = useContext(CartContext);
+
+    // FAVOURITE CAKE/S - adding style and alternating icons
     const FavCake = product.isFav ? faHeart : faCakeCandles;
     const favStyle = product.isFav ? styles.FavCake_On : styles.FavCake_Off;
 
@@ -20,9 +24,16 @@ const Product = ({ product, onChange, toggleFav }) => {
         toggleFav(product);
     };
 
-    useEffect(() => {
-        onChange({ ...product, quantity: quantity });
-    }, [quantity]);
+    // Adding to Cart. If quantity is 0, do nothing else add selected product to cart. Added product is also added to global cartItem data. Once quantity is selected and button is clicked, modal should close.
+    const handleAddToCart = async (quantity) => {
+        if (quantity <= 0) {
+            return;
+        } else {
+            await addCartItems({ product, quantity });
+            onAddedToCart();
+            handleClose();
+        }
+    };
 
     // Bootstrap Modal
     const [show, setShow] = useState(false);
@@ -60,11 +71,9 @@ const Product = ({ product, onChange, toggleFav }) => {
                         src={product.imageURL}
                         className={styles.Modal__Img}
                     />
-
                     <div className={styles.Product__Info}>
                         <p>
-                            <strong>Price: </strong>
-                            {product.price}
+                            <strong>Price: </strong>${product.price}
                         </p>
                         <p>
                             <strong>Ingredients: </strong>
@@ -74,12 +83,19 @@ const Product = ({ product, onChange, toggleFav }) => {
                             <strong>Description: </strong>
                             {product.description}
                         </p>
-                        <Quantity value={quantity} onChange={setQuantity} />
+                        <Quantity
+                            quantity={quantity}
+                            onDecrement={() => setQuantity(quantity - 1)}
+                            onIncrement={() => setQuantity(quantity + 1)}
+                        />
                     </div>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="dark" onClick={handleClose}>
-                        Save Changes
+                    <Button
+                        variant="dark"
+                        class="btn  close"
+                        onClick={() => handleAddToCart(quantity)}>
+                        Add to Cart
                     </Button>
                 </Modal.Footer>
             </Modal>

@@ -2,6 +2,11 @@
 @import "./../../Assets/palette.scss";
 
 .Footer {
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: fixed;
+
     &__Heading {
         text-align: center;
         margin: 20px 0;

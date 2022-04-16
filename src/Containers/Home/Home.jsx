@@ -4,10 +4,10 @@ import CarouselFP from "../../Components/CarouselFP/CarouselFP";
 
 const Home = () => {
     return (
-        <div>
+        <>
             <Navbar />
             <CarouselFP />
-        </div>
+        </>
     );
 };
 

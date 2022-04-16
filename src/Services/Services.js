@@ -18,7 +18,7 @@ export const seedProducts = async () => {
         return await collectionRef.add(product);
     });
 
-    const resolvedPromises = await Promise.all(promises);
+    await Promise.all(promises);
 };
 
 // Read - Getting documents in our DB
@@ -39,7 +39,6 @@ export const getProducts = async () => {
 };
 
 // Update a single document in our DB
-
 export const updateProducts = async (id, record) => {
     // record = data we want to update our doc with
     const collectionRef = firestore.collection("products");
@@ -48,7 +47,6 @@ export const updateProducts = async (id, record) => {
 };
 
 // DELETE - deleting a student in our DB
-
 export const deleteProducts = async (id) => {
     // Getting CollectionRef then DocRef
     const docRef = firestore.collection("products").doc(id);

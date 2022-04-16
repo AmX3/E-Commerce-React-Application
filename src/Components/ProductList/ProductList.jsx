@@ -1,6 +1,6 @@
 import styles from "./ProductList.module.scss";
 import Product from "../Product/Product";
-import { getProducts, updateProducts } from "./../../Services/Services";
+import { getProducts } from "./../../Services/Services";
 import React, { useState, useEffect, useContext } from "react";
 import { SearchContext } from "../../Context/SearchContext";
 
@@ -8,6 +8,7 @@ const ProductList = () => {
     const [products, setProducts] = useState([]);
 
     const { search } = useContext(SearchContext);
+
     // filter products by search term
     const filteredProducts = products.filter((product) => {
         return product.name.includes(search);
@@ -18,14 +19,12 @@ const ProductList = () => {
         setProducts(data);
     };
 
-    // Updating data and sending it to server. After every update, the webpage will update with new information
-    const handleChange = async (updatedQuantity) => {
-        const { id, ...record } = updatedQuantity;
-        await updateProducts(id, record);
+    // Get products data on app mount
+    useEffect(() => {
         getData();
-    };
+    }, []);
 
-    // If product id is not the same as selected cake, we will return the product or make it a favourite. We are destructuring the product object and adding in a new key equal to true or false returned by the icon
+    // If product id is not the same as selected cake, we will return the product or make it a favourite. We are destructuring the product object and adding in a new key equal to true or false returned by toggle icon
     const toggleFav = (selectedCake) => {
         setProducts(
             products.map((product) => {
@@ -36,11 +35,6 @@ const ProductList = () => {
         );
     };
 
-    // Get data on app mount
-    useEffect(() => {
-        getData();
-    }, []);
-
     return (
         <div className={styles.ProductList}>
             <h3 className={styles.ProductList__Heading}>Shop All</h3>
@@ -50,7 +44,6 @@ const ProductList = () => {
                         <Product
                             key={product.id}
                             product={product}
-                            onChange={handleChange}
                             toggleFav={toggleFav}
                         />
                     );

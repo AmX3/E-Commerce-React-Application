@@ -3,4 +3,12 @@
 
 .Quantity {
     @include flex($just-cont: space-around);
+
+    &__Icon {
+        cursor: pointer;
+    }
+
+    &__Icon:active {
+        color: $quantity;
+    }
 }

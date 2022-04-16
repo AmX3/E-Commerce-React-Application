@@ -4,7 +4,7 @@ import styles from "./Footer.module.scss";
 const Footer = () => {
     return (
         <div className={styles.Footer}>
-            <h2 className={styles.Footer__Heading}> — KOI DESSERT BAR —</h2>
+            <h2 className={styles.Footer__Heading}> — KOI DESSERT BAR — </h2>
         </div>
     );
 };

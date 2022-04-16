@@ -1,0 +1,31 @@
+@import "./../../Assets/mixins.scss";
+@import "./../../Assets/palette.scss";
+
+.CartItemList {
+    margin: 60px 200px;
+
+    &__Heading {
+        font-family: $heading-font;
+        @include text-style(18px, 500, 27px, $spacing: 0.02em);
+    }
+
+    &__Error {
+        font-family: $body-font;
+        @include text-style(16px, 400, 27px);
+    }
+
+    &__Container {
+        @include flex($flx-dir: column, $flex-wrap: wrap, $align-itm: none);
+        gap: 30px;
+    }
+
+    &__Total {
+        left: 0;
+        bottom: 0;
+        right: 0;
+        position: fixed;
+        text-align: center;
+        font-family: $heading-font;
+        @include text-style(18px, 500, 27px, $spacing: 0.02em);
+    }
+}

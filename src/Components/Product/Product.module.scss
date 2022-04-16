@@ -17,10 +17,12 @@
         font-family: $heading-font;
         @include text-style(18px, bold, 27px);
     }
+
     &__Info {
         font-family: $body-font;
         @include text-style(16px, 400, 27px);
     }
+
     &__Icon {
         @include flex;
     }
@@ -28,11 +30,12 @@
 
 .FavCake {
     &_On {
-        color: red;
+        color: $cakeOn;
         cursor: pointer;
     }
+
     &_Off {
-        color: #ffc857;
+        color: $cakeOff;
         cursor: pointer;
     }
 }

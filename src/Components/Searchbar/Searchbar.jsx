@@ -9,7 +9,7 @@ const Searchbar = () => {
     const [input, setInput] = useState("");
 
     // Hooking into SearchContext and accessing both the variable and function
-    const { search, setSearch } = useContext(SearchContext);
+    const { setSearch } = useContext(SearchContext);
 
     // Tracking changes made in the searchbar as user types
     const handleChange = (event) => {
@@ -22,7 +22,6 @@ const Searchbar = () => {
         // Reset input to an empty string
         setInput("");
     };
-    console.log(search);
 
     return (
         <div className={styles.Searchbar__Container}>
