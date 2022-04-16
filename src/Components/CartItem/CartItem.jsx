@@ -5,12 +5,13 @@ import { useContext } from "react";
 import { CartContext } from "../../Context/CartItemContext";
 import { deleteCartItems, updateCartItems } from "../../Services/CartItems";
 import Quantity from "../Quantity";
+import Variants from "../Variants/Variants";
 
 const CartItem = ({ item }) => {
-    const { onAddedToCart } = useContext(CartContext);
+    const { onAddedToCart, setVariants } = useContext(CartContext);
 
     // Destructuring item and product object and only retrieving values needed
-    const { product, quantity } = item;
+    const { product, quantity, variant } = item;
     const { imageURL, name, price } = product;
 
     const handleRemoveCartItem = async () => {
@@ -44,6 +45,9 @@ const CartItem = ({ item }) => {
                 />
                 <div className={styles.CartItem__Snapshot}>
                     <h3 className={styles.CartItem__Heading}>{name}</h3>
+                    <p>
+                        <strong>Variants: </strong> {variant}
+                    </p>
                     <Quantity
                         quantity={quantity}
                         onIncrement={handleIncrement}

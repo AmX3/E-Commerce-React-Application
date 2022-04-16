@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import Quantity from "../Quantity";
 import styles from "./Product.module.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -8,13 +8,17 @@ import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { Modal } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import { CartContext } from "../../Context/CartItemContext";
-import { addCartItems } from "../../Services/CartItems";
+import { addCartItems, updateCartItems } from "../../Services/CartItems";
+import Variants from "../Variants/Variants";
 
 const Product = ({ product, toggleFav }) => {
     // Creating a state variable to track quantity changes
     const [quantity, setQuantity] = useState(0);
 
-    const { onAddedToCart } = useContext(CartContext);
+    const { onAddedToCart, setVariants, variant } = useContext(CartContext);
+    const { name, imageURL, price, ingredients, description, size } = product;
+
+    const [amount, setAmount] = useState([]);
 
     // FAVOURITE CAKE/S - adding style and alternating icons
     const FavCake = product.isFav ? faHeart : faCakeCandles;
@@ -35,6 +39,10 @@ const Product = ({ product, toggleFav }) => {
         }
     };
 
+    useEffect(() => {
+        setVariants(() => size[0]);
+    }, []);
+
     // Bootstrap Modal
     const [show, setShow] = useState(false);
 
@@ -45,13 +53,13 @@ const Product = ({ product, toggleFav }) => {
         <div className={styles.Product}>
             <img
                 alt="Koi Cake"
-                src={product.imageURL}
+                src={imageURL}
                 className={styles.Product__Img}
                 onClick={handleShow}
             />
 
             <div className={styles.Product__Icon}>
-                <h2 className={styles.Product__Name}>{product.name}</h2>
+                <h2 className={styles.Product__Name}>{name}</h2>
                 <FontAwesomeIcon
                     className={favStyle}
                     icon={FavCake}
@@ -62,26 +70,29 @@ const Product = ({ product, toggleFav }) => {
 
             <Modal show={show} onHide={handleClose} centered size="lg">
                 <Modal.Header closeButton>
-                    <Modal.Title>{product.name}</Modal.Title>
+                    <Modal.Title>{name}</Modal.Title>
                 </Modal.Header>
 
                 <Modal.Body>
                     <img
                         alt="Koi Cake"
-                        src={product.imageURL}
+                        src={imageURL}
                         className={styles.Modal__Img}
                     />
                     <div className={styles.Product__Info}>
                         <p>
-                            <strong>Price: </strong>${product.price}
+                            <strong>Price: </strong>${price}
                         </p>
+                        <div>
+                            <Variants size={size} setVariant={setVariants} />
+                        </div>
                         <p>
                             <strong>Ingredients: </strong>
-                            {product.ingredients}
+                            {ingredients}
                         </p>
                         <p>
                             <strong>Description: </strong>
-                            {product.description}
+                            {description}
                         </p>
                         <Quantity
                             quantity={quantity}
@@ -93,7 +104,6 @@ const Product = ({ product, toggleFav }) => {
                 <Modal.Footer>
                     <Button
                         variant="dark"
-                        class="btn  close"
                         onClick={() => handleAddToCart(quantity)}>
                         Add to Cart
                     </Button>
