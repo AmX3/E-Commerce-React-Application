@@ -93,7 +93,6 @@ const Product = ({ product, toggleFav }) => {
                 <Modal.Footer>
                     <Button
                         variant="dark"
-                        class="btn  close"
                         onClick={() => handleAddToCart(quantity)}>
                         Add to Cart
                     </Button>
