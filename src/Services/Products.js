@@ -3,7 +3,8 @@ export const products = [
         imageURL:
             "https://cakes.koidessertbar.com.au/uploads/1/3/1/4/131496228/s501633400590994486_p1071_i5_w2717.jpeg?width=640",
         name: "Basque Cheesecake Tropical - Celebration Cake",
-        price: 120,
+        price: [55, 90, 120, 160],
+        size: ["Mini", "Small", "Medium", "Large"],
         quantity: 0,
         ingredients: "Baked Vanilla Cheesecake | Mango | Passionfruit",
         description:
@@ -13,7 +14,8 @@ export const products = [
         imageURL:
             "https://cakes.koidessertbar.com.au/uploads/1/3/1/4/131496228/s501633400590994486_p1070_i4_w3310.jpeg?width=2560?width=800",
         name: "Basque Cheesecake Raspberry - Celebration Cake",
-        price: 120,
+        price: [55, 90, 120, 160],
+        size: ["Mini", "Small", "Medium", "Large"],
         quantity: 0,
         ingredients:
             "Baked Vanilla Cheesecake | Lychee Cream | Fresh Raspberries",
@@ -24,7 +26,8 @@ export const products = [
         imageURL:
             "https://cakes.koidessertbar.com.au/uploads/1/3/1/4/131496228/s501633400590994486_p1062_i1_w722.jpeg?width=800",
         name: "Basque Cheesecake - Tropical",
-        price: 28,
+        price: [28, 55, 90, 120],
+        size: ["Mini", "Small", "Medium", "Large"],
         quantity: 0,
         ingredients: "Baked Vanilla Cheesecake | Mango | Passionfruit",
         description:
@@ -34,7 +37,8 @@ export const products = [
         imageURL:
             "https://cakes.koidessertbar.com.au/uploads/1/3/1/4/131496228/s501633400590994486_p1060_i1_w727.jpeg?width=800",
         name: "Basque Cheesecake - Matcha Rose",
-        price: 28,
+        price: [28, 55, 90, 120],
+        size: ["Mini", "Small", "Medium", "Large"],
         quantity: 0,
         ingredients: "",
         description:
@@ -44,7 +48,8 @@ export const products = [
         imageURL:
             "https://cakes.koidessertbar.com.au/uploads/1/3/1/4/131496228/s501633400590994486_p1063_i1_w757.jpeg?width=800",
         name: "Basque Cheesecake - Tiramisu",
-        price: 28,
+        price: [28, 55, 90, 120],
+        size: ["Mini", "Small", "Medium", "Large"],
         quantity: 0,
         ingredients: "",
         description:
@@ -54,7 +59,8 @@ export const products = [
         imageURL:
             "https://cakes.koidessertbar.com.au/uploads/1/3/1/4/131496228/s501633400590994486_p1061_i1_w771.jpeg?width=800",
         name: "Basque Cheesecake - Raspberry Lychee",
-        price: 28,
+        price: [28, 55, 90, 120],
+        size: ["Mini", "Small", "Medium", "Large"],
         quantity: 0,
         ingredients: "",
         description:
@@ -64,7 +70,8 @@ export const products = [
         imageURL:
             "https://cakes.koidessertbar.com.au/uploads/1/3/1/4/131496228/s501633400590994486_p649_i3_w3062.jpeg?width=640",
         name: "Basque Cheesecake - Classic Vanilla",
-        price: 20,
+        price: [20, 55, 90, 120],
+        size: ["Mini", "Small", "Medium", "Large"],
         quantity: 0,
         ingredients: "",
         description: "Classic vanilla brunt cheesecake, have it warm or cold!",

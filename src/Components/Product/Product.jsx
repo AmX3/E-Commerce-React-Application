@@ -13,12 +13,14 @@ import Variants from "../Variants/Variants";
 
 const Product = ({ product, toggleFav }) => {
     // Creating a state variable to track quantity changes
-    const [quantity, setQuantity] = useState(0);
 
-    const { onAddedToCart, setVariants, variant } = useContext(CartContext);
+    const { onAddedToCart } = useContext(CartContext);
     const { name, imageURL, price, ingredients, description, size } = product;
 
-    const [amount, setAmount] = useState([]);
+    const [quantity, setQuantity] = useState(0);
+    const [amount, setAmount] = useState(price[0]);
+    const [sizeState, setSizeState] = useState(size[0]);
+    const [selectedProduct, setSelectedProduct] = useState(null);
 
     // FAVOURITE CAKE/S - adding style and alternating icons
     const FavCake = product.isFav ? faHeart : faCakeCandles;
@@ -28,20 +30,73 @@ const Product = ({ product, toggleFav }) => {
         toggleFav(product);
     };
 
+    useEffect(() => {
+        setSelectedProduct({
+            ...product,
+            size: size[0],
+            price: price[0],
+            quantity: quantity,
+        });
+    }, [product]);
+
     // Adding to Cart. If quantity is 0, do nothing else add selected product to cart. Added product is also added to global cartItem data. Once quantity is selected and button is clicked, modal should close.
     const handleAddToCart = async (quantity) => {
         if (quantity <= 0) {
             return;
         } else {
-            await addCartItems({ product, quantity });
+            await addCartItems({ product, quantity, selectedProduct });
             onAddedToCart();
             handleClose();
         }
     };
 
+    // Watches for any changes in the sizeState and updates according to the switch statement
     useEffect(() => {
-        setVariants(() => size[0]);
-    }, []);
+        if (selectedProduct) {
+            switch (sizeState) {
+                case size[0]:
+                    setAmount(price[0]);
+                    setSelectedProduct({
+                        ...product,
+                        size: sizeState,
+                        quantity: quantity,
+                        price: price[0],
+                    });
+                    break;
+                case size[1]:
+                    setAmount(price[1]);
+                    setSelectedProduct({
+                        ...product,
+                        size: sizeState,
+                        quantity: quantity,
+                        price: price[1],
+                    });
+                    break;
+                case size[2]:
+                    setAmount(price[2]);
+                    setSelectedProduct({
+                        ...product,
+                        size: sizeState,
+                        quantity: quantity,
+                        price: price[2],
+                    });
+                    break;
+                case size[3]:
+                    setAmount(price[3]);
+                    setSelectedProduct({
+                        ...product,
+                        size: sizeState,
+                        quantity: quantity,
+                        price: price[3],
+                    });
+            }
+        }
+    }, [sizeState, amount]);
+
+    // Changes value of price according to size changes
+    const handleSizeChange = (e) => {
+        setSizeState(e.target.value);
+    };
 
     // Bootstrap Modal
     const [show, setShow] = useState(false);
@@ -81,10 +136,13 @@ const Product = ({ product, toggleFav }) => {
                     />
                     <div className={styles.Product__Info}>
                         <p>
-                            <strong>Price: </strong>${price}
+                            <strong>Price: </strong>${amount}
                         </p>
                         <div>
-                            <Variants size={size} setVariant={setVariants} />
+                            <Variants
+                                size={size}
+                                handleSizeChange={handleSizeChange}
+                            />
                         </div>
                         <p>
                             <strong>Ingredients: </strong>
@@ -104,7 +162,9 @@ const Product = ({ product, toggleFav }) => {
                 <Modal.Footer>
                     <Button
                         variant="dark"
-                        onClick={() => handleAddToCart(quantity)}>
+                        onClick={() =>
+                            handleAddToCart(quantity, selectedProduct)
+                        }>
                         Add to Cart
                     </Button>
                 </Modal.Footer>

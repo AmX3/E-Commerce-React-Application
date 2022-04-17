@@ -8,7 +8,7 @@ export const CartContext = createContext();
 const CartItemProvider = ({ children }) => {
     // Tracking each product in cart
     const [cartItem, setCartItem] = useState([]);
-    const [variant, setVariants] = useState(undefined);
+    // const [variant, setVariants] = useState(size[0]);
 
     //   Retriving cartItems from DB
     const getItems = async () => {
@@ -16,16 +16,19 @@ const CartItemProvider = ({ children }) => {
         setCartItem(items);
     };
 
-    // https://dev.to/lauratoddcodes/a-really-simple-intro-to-context-in-react-6g1
-    const handleSizeChange = (e) => {
-        setVariants(e.target.value);
-    };
+    // // https://dev.to/lauratoddcodes/a-really-simple-intro-to-context-in-react-6g1
+    // const handleSizeChange = (e) => {
+    //     setVariants(e.target.value);
+    // };
 
     const onAddedToCart = () => getItems();
 
     return (
         <CartContext.Provider
-            value={{ cartItem, onAddedToCart, variant, setVariants }}>
+            value={{
+                cartItem,
+                onAddedToCart,
+            }}>
             {children}
         </CartContext.Provider>
     );

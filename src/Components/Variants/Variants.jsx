@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { CartContext } from "../../Context/CartItemContext";
 import styles from "./Variants.module.scss";
 
-const Variants = ({ size, setVariant }) => {
+const Variants = ({ size, handleSizeChange }) => {
     return (
         <div className={styles.Variants}>
             <label htmlFor="size">
@@ -10,12 +10,15 @@ const Variants = ({ size, setVariant }) => {
             </label>
             <select
                 name="size"
-                onInput={setVariant}
+                onInput={handleSizeChange}
                 defaultValue={"Default"}
                 required>
-                <option disabled></option>
                 {size.map((variant) => {
-                    return <option key={variant}>{variant}</option>;
+                    return (
+                        <option key={variant} value={variant}>
+                            {variant}
+                        </option>
+                    );
                 })}
             </select>
         </div>

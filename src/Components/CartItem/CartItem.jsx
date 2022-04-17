@@ -5,14 +5,13 @@ import { useContext } from "react";
 import { CartContext } from "../../Context/CartItemContext";
 import { deleteCartItems, updateCartItems } from "../../Services/CartItems";
 import Quantity from "../Quantity";
-import Variants from "../Variants/Variants";
 
 const CartItem = ({ item }) => {
-    const { onAddedToCart, setVariants } = useContext(CartContext);
+    const { cartItem, onAddedToCart } = useContext(CartContext);
 
     // Destructuring item and product object and only retrieving values needed
-    const { product, quantity, variant } = item;
-    const { imageURL, name, price } = product;
+    const { product, quantity, selectedProduct } = item;
+    const { imageURL, name, price, size } = product;
 
     const handleRemoveCartItem = async () => {
         await deleteCartItems(item.id);
@@ -32,7 +31,13 @@ const CartItem = ({ item }) => {
     };
 
     const itemPrice = () => {
-        return price * quantity;
+        return selectedProduct.price * quantity;
+    };
+
+    const totalPrice = () => {
+        return cartItem.reduce((sum, item) => {
+            return sum + item.quantity * item.selectedProduct.price;
+        }, 0);
     };
 
     return (
@@ -45,9 +50,7 @@ const CartItem = ({ item }) => {
                 />
                 <div className={styles.CartItem__Snapshot}>
                     <h3 className={styles.CartItem__Heading}>{name}</h3>
-                    <p>
-                        <strong>Variants: </strong> {variant}
-                    </p>
+                    <p>{selectedProduct.size}</p>
                     <Quantity
                         quantity={quantity}
                         onIncrement={handleIncrement}
@@ -62,6 +65,9 @@ const CartItem = ({ item }) => {
                     <p>${itemPrice()}</p>
                 </div>
             </div>
+            <p className={styles.CartItemList__Total}>
+                <strong>Total: </strong> ${totalPrice()}
+            </p>
         </div>
     );
 };
