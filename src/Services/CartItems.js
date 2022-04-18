@@ -41,14 +41,10 @@ export const addCartItems = async (record) => {
     );
 
     if (existingCartItem) {
-        await updateCartItems(
-            existingCartItem.id,
-            {
-                ...existingCartItem,
-                quantity: selectedProduct.quantity + selectedProduct.quantity,
-            },
-            { merge: true }
-        );
+        await updateCartItems(existingCartItem.id, {
+            ...existingCartItem,
+            quantity: selectedProduct.quantity + selectedProduct.quantity,
+        });
     } else {
         await createCartItem(record);
     }

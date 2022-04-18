@@ -10,8 +10,8 @@ const CartItem = ({ item }) => {
     const { onAddedToCart } = useContext(CartContext);
 
     // Destructuring item and product object and only retrieving values needed
-    const { selectedProduct } = item;
-    const { imageURL, name, price, quantity, size } = selectedProduct;
+    const { selectedProduct, quantity } = item;
+    const { imageURL, name, price, size } = selectedProduct;
 
     console.log(selectedProduct);
     console.log(item);
@@ -23,14 +23,14 @@ const CartItem = ({ item }) => {
     const handleDecrement = async () => {
         const updatedItem = {
             ...item,
-            quantity: selectedProduct.quantity - 1,
+            quantity: quantity - 1,
         };
         await updateCartItems(updatedItem.id, updatedItem);
         onAddedToCart();
     };
 
     const handleIncrement = async () => {
-        const updatedItem = { ...item, quantity: selectedProduct.quantity + 1 };
+        const updatedItem = { ...item, quantity: quantity + 1 };
         await updateCartItems(updatedItem.id, updatedItem);
         onAddedToCart();
     };
