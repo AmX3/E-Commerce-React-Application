@@ -8,10 +8,13 @@ import { getCartItems } from "../../Services/CartItems";
 const CartItemList = () => {
     // Hook into global context to access cart items
     const { cartItem, onAddedToCart } = useContext(CartContext);
+    console.log(cartItem);
 
     const totalPrice = () => {
         return cartItem.reduce((sum, item) => {
-            return sum + item.quantity * item.product.price;
+            return (
+                sum + item.selectedProduct.quantity * item.selectedProduct.price
+            );
         }, 0);
     };
 

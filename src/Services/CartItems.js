@@ -32,17 +32,16 @@ export const deleteCartItems = async (id) => {
 // Checking if there is an existing cartItem already in the DB, we update the quantity to new quantity. If not, we will create a new cartitem record.
 export const addCartItems = async (record) => {
     // creating an object that only contains product and the quantity
-    const { product, quantity } = record;
+    const { selectedProduct } = record;
     const cartItems = await getCartItems();
-    const existingCartItem = cartItems.find(({ product: eachProduct }) => {
-        return eachProduct.id === product.id;
-    });
+    const existingCartItem = cartItems.find(
+        ({ selectedProduct: eachselectedProduct }) => {
+            return eachselectedProduct.id === selectedProduct.id;
+        }
+    );
 
     if (existingCartItem) {
-        await updateCartItems(existingCartItem.id, {
-            ...existingCartItem,
-            quantity: existingCartItem.quantity + quantity,
-        });
+        await updateCartItems(existingCartItem.id, selectedProduct);
     } else {
         await createCartItem(record);
     }
