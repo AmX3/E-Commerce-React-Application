@@ -43,7 +43,7 @@ export const addCartItems = async (record) => {
     if (existingCartItem) {
         await updateCartItems(existingCartItem.id, {
             ...existingCartItem,
-            quantity: selectedProduct.quantity + selectedProduct.quantity,
+            quantity: existingCartItem.quantity + quantity,
         });
     } else {
         await createCartItem(record);

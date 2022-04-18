@@ -13,6 +13,8 @@ const CartItem = ({ item }) => {
     const { selectedProduct, quantity } = item;
     const { imageURL, name, price, size } = selectedProduct;
 
+    console.log(item.selectedProduct);
+
     console.log(selectedProduct);
     console.log(item);
     const handleRemoveCartItem = async () => {

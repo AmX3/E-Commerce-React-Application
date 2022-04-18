@@ -2,7 +2,6 @@ import styles from "./Quantity.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleMinus } from "@fortawesome/free-solid-svg-icons";
 import { faCirclePlus } from "@fortawesome/free-solid-svg-icons";
-import { useEffect } from "react";
 
 const Quantity = ({ quantity, onDecrement, onIncrement }) => {
     // Quantity cannot be negative

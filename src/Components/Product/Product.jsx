@@ -14,16 +14,8 @@ import Variants from "../Variants/Variants";
 const Product = ({ product, toggleFav }) => {
     const { onAddedToCart } = useContext(CartContext);
     // Destructuring the object and retrieving values needed
-    const {
-        id,
-        name,
-        imageURL,
-        price,
-        ingredients,
-        description,
-        size,
-        quantity,
-    } = product;
+    const { name, imageURL, price, ingredients, description, size, quantity } =
+        product;
 
     // Tracking state variables
     const [quantityState, setQuantityState] = useState(quantity);
@@ -47,7 +39,7 @@ const Product = ({ product, toggleFav }) => {
             price: price[0],
             quantity: quantityState,
         });
-    }, [product]);
+    }, [product, price, quantityState, size]);
 
     // Changes value of price according to size changes
     const handleSizeChange = (e) => {
@@ -107,6 +99,7 @@ const Product = ({ product, toggleFav }) => {
                         quantity: quantityState,
                         price: price[3],
                     });
+                    break;
                 default:
                     break;
             }
