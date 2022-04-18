@@ -17,10 +17,15 @@ export const getCartItems = async () => {
 };
 
 // Update a single cartItem in our DB based on its unique id
-export const updateCartItems = async (id, record) => {
+export const updateCartItems = async (id, selectedProduct) => {
     const collectionRef = firestore.collection("cartItems");
-    const docRef = collectionRef.doc(id);
-    await docRef.update(record);
+    const docRef = collectionRef
+        .doc(id)
+        .set(
+            { selectedProduct: { quantity: selectedProduct.quantity } },
+            { merge: true }
+        );
+    await docRef;
 };
 
 // Removing a cartItem from our DB

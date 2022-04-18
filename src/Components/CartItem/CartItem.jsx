@@ -10,8 +10,8 @@ const CartItem = ({ item }) => {
     const { onAddedToCart } = useContext(CartContext);
 
     // Destructuring item and product object and only retrieving values needed
-    const { selectedProduct, quantity } = item;
-    const { imageURL, name, price, size } = selectedProduct;
+    const { selectedProduct } = item;
+    const { imageURL, name, price, size, quantity } = selectedProduct;
 
     console.log(item.selectedProduct);
 
