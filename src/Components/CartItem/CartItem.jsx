@@ -23,14 +23,14 @@ const CartItem = ({ item }) => {
     const handleDecrement = async () => {
         const updatedItem = {
             ...item,
-            quantity: quantity - 1,
+            quantity: selectedProduct.quantity - 1,
         };
         await updateCartItems(updatedItem.id, updatedItem);
         onAddedToCart();
     };
 
     const handleIncrement = async () => {
-        const updatedItem = { ...item, quantity: quantity + 1 };
+        const updatedItem = { ...item, quantity: selectedProduct.quantity + 1 };
         await updateCartItems(updatedItem.id, updatedItem);
         onAddedToCart();
     };
