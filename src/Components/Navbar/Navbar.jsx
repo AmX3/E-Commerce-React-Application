@@ -3,12 +3,23 @@ import { Link } from "react-router-dom";
 import Searchbar from "../Searchbar/Searchbar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { CartContext } from "../../Context/CartItemContext";
+import { getCartItems } from "../../Services/CartItems";
 
 const Navbar = () => {
     // Hooking into the CartContext, and accessing cartItem. Displaying how many items are added to the cart.
-    const { cartItem } = useContext(CartContext);
+    const { cartItem, onAddedToCart } = useContext(CartContext);
+
+    const getData = async () => {
+        const data = await getCartItems();
+        onAddedToCart(data);
+    };
+
+    //  Retrieve stored cartItems from DB when refreshing the page. Prevents them from disappearing
+    useEffect(() => {
+        getData();
+    }, []);
 
     return (
         <nav className={styles.Navbar}>

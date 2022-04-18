@@ -105,7 +105,6 @@ const Product = ({ product, toggleFav }) => {
             }
         }
     }, [sizeState, quantityState, product]);
-    console.log(selectedProduct);
 
     // Bootstrap Modal
     const [show, setShow] = useState(false);

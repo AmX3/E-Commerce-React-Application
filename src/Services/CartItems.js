@@ -16,7 +16,8 @@ export const getCartItems = async () => {
     return documents.map((doc) => ({ id: doc.id, ...doc.data() }));
 };
 
-// Update a single cartItem in our DB based on its unique id
+// Updating the quantity within our nested object in DB. With nested objects, we need to use set() and {merge: true}.
+// https://stackoverflow.com/questions/49150917/update-fields-in-nested-objects-in-firestore-documents
 export const updateCartItems = async (id, selectedProduct) => {
     const collectionRef = firestore.collection("cartItems");
     const docRef = collectionRef
@@ -53,4 +54,5 @@ export const addCartItems = async (record) => {
     } else {
         await createCartItem(record);
     }
+    console.log(existingCartItem);
 };
