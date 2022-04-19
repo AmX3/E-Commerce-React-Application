@@ -16,11 +16,17 @@ export const getCartItems = async () => {
     return documents.map((doc) => ({ id: doc.id, ...doc.data() }));
 };
 
-// Update a single cartItem in our DB based on its unique id
-export const updateCartItems = async (id, record) => {
+// Updating the quantity within our nested object in DB. With nested objects, we need to use set() and {merge: true}.
+// https://stackoverflow.com/questions/49150917/update-fields-in-nested-objects-in-firestore-documents
+export const updateCartItems = async (id, selectedProduct) => {
     const collectionRef = firestore.collection("cartItems");
-    const docRef = collectionRef.doc(id);
-    await docRef.update(record);
+    const docRef = collectionRef
+        .doc(id)
+        .set(
+            { selectedProduct: { quantity: selectedProduct.quantity } },
+            { merge: true }
+        );
+    await docRef;
 };
 
 // Removing a cartItem from our DB
@@ -32,11 +38,13 @@ export const deleteCartItems = async (id) => {
 // Checking if there is an existing cartItem already in the DB, we update the quantity to new quantity. If not, we will create a new cartitem record.
 export const addCartItems = async (record) => {
     // creating an object that only contains product and the quantity
-    const { product, quantity } = record;
+    const { selectedProduct, quantity } = record;
     const cartItems = await getCartItems();
-    const existingCartItem = cartItems.find(({ product: eachProduct }) => {
-        return eachProduct.id === product.id;
-    });
+    const existingCartItem = cartItems.find(
+        ({ selectedProduct: eachselectedProduct }) => {
+            return eachselectedProduct.id === selectedProduct.id;
+        }
+    );
 
     if (existingCartItem) {
         await updateCartItems(existingCartItem.id, {
