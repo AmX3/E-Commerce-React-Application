@@ -54,5 +54,4 @@ export const addCartItems = async (record) => {
     } else {
         await createCartItem(record);
     }
-    console.log(existingCartItem);
 };

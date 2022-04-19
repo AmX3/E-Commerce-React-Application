@@ -9,9 +9,6 @@ const CartItemList = () => {
     // Hook into global context to access cart items
     const { cartItem, onAddedToCart } = useContext(CartContext);
 
-    // Accessing the quantity and price nested within cartItem
-    console.log(cartItem.map((item) => item.selectedProduct.quantity));
-
     const totalPrice = () => {
         return cartItem.reduce((sum, item) => {
             return (

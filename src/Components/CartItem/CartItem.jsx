@@ -15,8 +15,6 @@ const CartItem = ({ item }) => {
 
     console.log(item.selectedProduct);
 
-    console.log(selectedProduct);
-    console.log(item);
     const handleRemoveCartItem = async () => {
         await deleteCartItems(item.id);
         onAddedToCart();

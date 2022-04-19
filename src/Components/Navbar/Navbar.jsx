@@ -19,7 +19,7 @@ const Navbar = () => {
     //  Retrieve stored cartItems from DB when refreshing the page. Prevents them from disappearing
     useEffect(() => {
         getData();
-    }, []);
+    }, [cartItem]);
 
     return (
         <nav className={styles.Navbar}>

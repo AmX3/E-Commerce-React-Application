@@ -3,7 +3,7 @@ import styles from "./Variants.module.scss";
 const Variants = ({ size, handleSizeChange }) => {
     return (
         <div className={styles.Variants}>
-            <label htmlFor="size">
+            <label htmlFor="size" className={styles.Variants__Label}>
                 <strong>Select a size: </strong>
             </label>
             <select

@@ -39,7 +39,7 @@ const Product = ({ product, toggleFav }) => {
             price: price[0],
             quantity: quantityState,
         });
-    }, [product, price, quantityState, size]);
+    }, [product]);
 
     // Changes value of price according to size changes
     const handleSizeChange = (e) => {
