@@ -8,7 +8,7 @@ import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { Modal } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import { CartContext } from "../../Context/CartItemContext";
-import { addCartItems, createCartItem } from "../../Services/CartItems";
+import { addCartItems } from "../../Services/CartItems";
 import Variants from "../Variants/Variants";
 
 const Product = ({ product, toggleFav }) => {

@@ -51,4 +51,16 @@
         display: block;
         margin: 0 auto;
     }
+    @media (max-width: ($phone)) {
+        &__Img {
+            @include height-and-width(250px, 250px);
+            margin-bottom: 20px;
+        }
+    }
+    @media (min-width: ($phone + 1)) and (max-width: $tablet-portrait) {
+        &__Img {
+            @include height-and-width(250px, 250px);
+            margin-bottom: 20px;
+        }
+    }
 }

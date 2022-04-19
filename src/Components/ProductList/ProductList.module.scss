@@ -3,6 +3,12 @@
 
 .ProductList {
     margin: 60px 200px;
+    @media (min-width: ($phone + 1)) and (max-width: $tablet-portrait) {
+        margin: 0 0;
+    }
+    @media (max-width: ($phone)) {
+        margin: 0 0;
+    }
 
     &__Heading {
         font-family: $heading-font;
@@ -14,5 +20,19 @@
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 40px;
+    }
+
+    @media (min-width: ($phone + 1)) and (max-width: $tablet-portrait) {
+        &__Grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            margin: 0;
+        }
+    }
+    @media (max-width: ($phone)) {
+        &__Grid {
+            @include flex($flex-wrap: wrap);
+            margin: 0;
+        }
     }
 }

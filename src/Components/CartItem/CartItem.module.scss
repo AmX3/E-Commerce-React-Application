@@ -10,6 +10,19 @@
         @include text-style(16px, 400, 27px);
     }
 
+    @media (min-width: ($phone + 1)) and (max-width: $tablet-portrait) {
+        &__Main {
+            @include flex($flx-dir: column, $flex-wrap: wrap);
+            margin: 0;
+        }
+    }
+    @media (max-width: ($phone)) {
+        &__Main {
+            @include flex($flx-dir: column, $flex-wrap: wrap);
+            margin: 0;
+        }
+    }
+
     &__Heading {
         font-family: $heading-font;
         @include text-style(18px, bold, 27px);
@@ -25,5 +38,11 @@
 
     &__Img {
         @include height-and-width(250px, 250px);
+    }
+
+    @media (max-width: ($phone)) {
+        &__Img {
+            @include height-and-width(350px, 350px);
+        }
     }
 }
