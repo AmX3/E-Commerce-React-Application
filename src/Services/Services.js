@@ -15,7 +15,7 @@ export const seedProducts = async () => {
     }
 
     // Grabbing every product object in our array and adding it to the product collection
-    const promises = data.map(async (product) => {
+    const promises = products.map(async (product) => {
         return await collectionRef.add(product);
     });
 
@@ -37,6 +37,11 @@ export const getProducts = async () => {
 
     // Returning an array of students with their unique IDs
     return data;
+};
+
+export const getProductId = async (productId) => {
+    const products = await getProducts();
+    return products.find((product) => product.id === productId);
 };
 
 // Update a single document in our DB

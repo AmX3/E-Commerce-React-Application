@@ -10,6 +10,7 @@ import { Button } from "react-bootstrap";
 import { CartContext } from "../../Context/CartItemContext";
 import { addCartItems, createCartItem } from "../../Services/CartItems";
 import Variants from "../Variants/Variants";
+import { Link } from "react-router-dom";
 
 const Product = ({ product, toggleFav }) => {
     const { onAddedToCart } = useContext(CartContext);
@@ -122,7 +123,9 @@ const Product = ({ product, toggleFav }) => {
             />
 
             <div className={styles.Product__Icon}>
-                <h2 className={styles.Product__Name}>{name}</h2>
+                <Link to={`/Products/${product.id}`}>
+                    <h2 className={styles.Product__Name}>{name}</h2>
+                </Link>
                 <FontAwesomeIcon
                     className={favStyle}
                     icon={FavCake}
