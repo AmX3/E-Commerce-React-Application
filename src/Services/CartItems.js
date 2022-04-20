@@ -35,12 +35,13 @@ export const deleteCartItems = async (id) => {
     await docRef.delete();
 };
 
-// Checking if there is an existing cartItem already in the DB, we update the quantity to new quantity. If not, we will create a new cartitem record.
+// Checking if there is an existing cartItem already in the DB. If selected product already exists, we update the quantity to new quantity. If not, we will create a new cartitem record.
 export const addCartItems = async (record) => {
-    // creating an object that only contains product and the quantity
-    const { selectedProduct, quantity } = record;
+    // destructuring of object
+    const { selectedProduct } = record;
     const cartItems = await getCartItems();
-    const existingCartItem = cartItems.find(
+    const mapCart = cartItems.map((item) => item);
+    const existingCartItem = mapCart.find(
         ({ selectedProduct: eachselectedProduct }) => {
             return eachselectedProduct.id === selectedProduct.id;
         }
@@ -48,10 +49,15 @@ export const addCartItems = async (record) => {
 
     if (existingCartItem) {
         await updateCartItems(existingCartItem.id, {
-            ...existingCartItem,
-            quantity: existingCartItem.quantity + quantity,
+            ...existingCartItem.selectedProduct,
+            quantity:
+                existingCartItem.selectedProduct.quantity +
+                selectedProduct.quantity,
         });
     } else {
         await createCartItem(record);
     }
+    // console.log(cartItems.map((item) => item.selectedProduct.quantity));
+    // console.log(existingCartItem2);
+    // console.log(exist.selectedProduct);
 };

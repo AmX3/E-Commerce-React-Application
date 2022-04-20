@@ -1,5 +1,4 @@
 import firestore from "./firebase";
-import { products } from "./Products";
 
 // CRUD - Create Read Update Delete
 
