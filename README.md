@@ -1,6 +1,6 @@
 # KOI E-Commerce WebStore (React)
 
-An e-commerce website built using React, Firestore and Bootstrap components. Featuring a design based on the [KOI Desert Bar](https://cakes.koidessertbar.com.au/) webstore.
+An e-commerce website built using React, Google Firestore and Bootstrap components. Featuring a design based on the [KOI Desert Bar](https://cakes.koidessertbar.com.au/) webstore.
 
 ### [Live Project](https://amx3.github.io/E-Commerce-React-Application/)
 
@@ -17,6 +17,7 @@ An e-commerce website built using React, Firestore and Bootstrap components. Fea
 ## Screenshots
 
 **Carousel**
+
 ![caption](./src/Images/Carousel.png)
 
 ![caption](./src/Images/Cake.png)
@@ -95,14 +96,14 @@ The most difficult aspect of this project was coming up with the logic for the c
 
 **Cart Logic using States & CRUD**
 
-1. To track changes to number, price, size, and the selected product, several state variables were constructed. Using a switch statement, the displayed price will change depending on the size selected by the user.
+1. To track changes to number, price, size, and the selected product, several state variables were constructed. Using an if statement, price displayed on product modal will change accordingly to selected size.
 
 2. When using CRUD, the cart state is verified for an existing ID of the selected product when clicking the add to cart button.
 
     - If an ID is found, the previous quantity is replaced with the new quantity.
     - If the ID does not exist, a new record is created in our database for the selected product.
 
-3. On the cart page, the user can change the quantity of a product or remove it.
+3. On the cart page, the user can change the quantity of a product or remove it. A message is displayed when cart is empty.
 
 4. Cart icon displays how many items are present within the cart on each page.
 

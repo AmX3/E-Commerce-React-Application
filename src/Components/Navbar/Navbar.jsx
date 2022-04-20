@@ -16,10 +16,10 @@ const Navbar = () => {
         onAddedToCart(data);
     };
 
-    //  Retrieve stored cartItems from DB when refreshing the page. Prevents them from disappearing
+    //  Retrieve stored cartItems from DB when refreshing the page. Prevents them from disappearing and displays amount of cartitem next to icon.
     useEffect(() => {
         getData();
-    }, [cartItem]);
+    }, []);
 
     return (
         <nav className={styles.Navbar}>

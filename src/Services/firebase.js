@@ -5,14 +5,13 @@ import "firebase/compat/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyCXtaTuy0vANvl2d2-GaCznU4St0spdI60",
-    authDomain: "koicake-ae3e9.firebaseapp.com",
-    projectId: "koicake-ae3e9",
-    storageBucket: "koicake-ae3e9.appspot.com",
-    messagingSenderId: "716117661502",
-    appId: "1:716117661502:web:03dd9293ea5e1016adfe6f",
+    apiKey: "AIzaSyDDvny1ZMud8TL4OwWXcHwzcJO_vHyKkCg",
+    authDomain: "final-ef152.firebaseapp.com",
+    projectId: "final-ef152",
+    storageBucket: "final-ef152.appspot.com",
+    messagingSenderId: "900635413555",
+    appId: "1:900635413555:web:2afe42e85aa40809a12746",
 };
-
 firebase.initializeApp(firebaseConfig);
 
 // Initialize Firebase

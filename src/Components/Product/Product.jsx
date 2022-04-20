@@ -57,51 +57,18 @@ const Product = ({ product, toggleFav }) => {
         }
     };
 
-    // Watches for any changes in the sizeState and updates according to the switch statement
+    // Creating a variable that retrieves the index of sizeState (when user selects size). Price displayed on product modal will change accordingly to selected size.
     useEffect(() => {
         if (selectedProduct) {
-            switch (sizeState) {
-                case size[0]:
-                    setAmount(price[0]);
-                    setSelectedProduct({
-                        ...product,
-                        size: sizeState,
-                        quantity: quantityState,
-                        price: price[0],
-                    });
-                    break;
-                case size[1]:
-                    setAmount(price[1]);
-                    setSelectedProduct({
-                        ...product,
-
-                        size: sizeState,
-                        quantity: quantityState,
-                        price: price[1],
-                    });
-                    break;
-                case size[2]:
-                    setAmount(price[2]);
-                    setSelectedProduct({
-                        ...product,
-
-                        size: sizeState,
-                        quantity: quantityState,
-                        price: price[2],
-                    });
-                    break;
-                case size[3]:
-                    setAmount(price[3]);
-                    setSelectedProduct({
-                        ...product,
-                        size: sizeState,
-                        quantity: quantityState,
-                        price: price[3],
-                    });
-                    break;
-                default:
-                    break;
-            }
+            let index = size.indexOf(sizeState);
+            console.log(index);
+            setAmount(price[index]);
+            setSelectedProduct({
+                ...product,
+                size: sizeState,
+                quantity: quantityState,
+                price: price[index],
+            });
         }
     }, [sizeState, quantityState]);
 

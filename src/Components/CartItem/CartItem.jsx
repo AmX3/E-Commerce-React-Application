@@ -47,7 +47,10 @@ const CartItem = ({ item }) => {
                 />
                 <div className={styles.CartItem__Snapshot}>
                     <h3 className={styles.CartItem__Heading}>{name}</h3>
-                    <p>{size}</p>
+                    <p>
+                        <strong>Size: </strong>
+                        {size}
+                    </p>
                     <Quantity
                         quantity={quantity}
                         onIncrement={handleIncrement}
