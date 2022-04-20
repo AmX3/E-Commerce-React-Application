@@ -31,7 +31,7 @@ const Product = ({ product, toggleFav }) => {
         toggleFav(product);
     };
 
-    // On app mount, creating a new object called setSelectedProduct and destructuring the product object to create a new object containing size, price and quantity
+    // On app mount, I am destructuring the product object to create a new object containing size, price and quantity
     useEffect(() => {
         setSelectedProduct({
             ...product,
@@ -65,7 +65,6 @@ const Product = ({ product, toggleFav }) => {
                     setAmount(price[0]);
                     setSelectedProduct({
                         ...product,
-
                         size: sizeState,
                         quantity: quantityState,
                         price: price[0],
@@ -104,7 +103,7 @@ const Product = ({ product, toggleFav }) => {
                     break;
             }
         }
-    }, [sizeState, quantityState, product]);
+    }, [sizeState, quantityState]);
 
     // Bootstrap Modal
     const [show, setShow] = useState(false);

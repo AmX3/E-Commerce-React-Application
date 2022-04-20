@@ -5,23 +5,13 @@ import "firebase/compat/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyDO6ElAjCSWkL5h3Kn4YVXtPzRwLs8YJFg",
-    authDomain: "ecommerce-fbc9f.firebaseapp.com",
-    projectId: "ecommerce-fbc9f",
-    storageBucket: "ecommerce-fbc9f.appspot.com",
-    messagingSenderId: "478795015060",
-    appId: "1:478795015060:web:2e6a92dfd7fcb82504a581",
+    apiKey: "AIzaSyCXtaTuy0vANvl2d2-GaCznU4St0spdI60",
+    authDomain: "koicake-ae3e9.firebaseapp.com",
+    projectId: "koicake-ae3e9",
+    storageBucket: "koicake-ae3e9.appspot.com",
+    messagingSenderId: "716117661502",
+    appId: "1:716117661502:web:03dd9293ea5e1016adfe6f",
 };
-
-// // Your web app's Firebase configuration
-// const firebaseConfig = {
-//     apiKey: "AIzaSyBxYQwJ-c2px0oYKvMHgjsc9ZgFpssUMrU",
-//     authDomain: "e-commerce-74d3f.firebaseapp.com",
-//     projectId: "e-commerce-74d3f",
-//     storageBucket: "e-commerce-74d3f.appspot.com",
-//     messagingSenderId: "425347734408",
-//     appId: "1:425347734408:web:24e1d27a5370b3aca3b83d",
-// };
 
 firebase.initializeApp(firebaseConfig);
 
