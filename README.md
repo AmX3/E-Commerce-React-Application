@@ -16,6 +16,20 @@ An e-commerce website built using React, Firestore and Bootstrap components. Fea
 
 ## Screenshots
 
+**Carousel**
+![caption](./src/Images/Carousel.png)
+
+![caption](./src/Images/Cake.png)
+
+**Products**
+![caption](./src/Images/Products.png)
+
+**Modal**
+![caption](./src/Images/Modal.png)
+
+**Cart Page**
+![caption](./src/Images/Cart.png)
+
 ## Instructions
 
 In the project directory, you can run:

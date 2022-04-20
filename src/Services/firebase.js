@@ -5,12 +5,12 @@ import "firebase/compat/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyDDvny1ZMud8TL4OwWXcHwzcJO_vHyKkCg",
-    authDomain: "final-ef152.firebaseapp.com",
-    projectId: "final-ef152",
-    storageBucket: "final-ef152.appspot.com",
-    messagingSenderId: "900635413555",
-    appId: "1:900635413555:web:2afe42e85aa40809a12746",
+    apiKey: "AIzaSyDO6ElAjCSWkL5h3Kn4YVXtPzRwLs8YJFg",
+    authDomain: "ecommerce-fbc9f.firebaseapp.com",
+    projectId: "ecommerce-fbc9f",
+    storageBucket: "ecommerce-fbc9f.appspot.com",
+    messagingSenderId: "478795015060",
+    appId: "1:478795015060:web:2e6a92dfd7fcb82504a581",
 };
 
 // // Your web app's Firebase configuration
