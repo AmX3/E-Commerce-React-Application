@@ -57,7 +57,8 @@ export const addCartItems = async (record) => {
     } else {
         await createCartItem(record);
     }
+
     // console.log(cartItems.map((item) => item.selectedProduct.quantity));
-    // console.log(existingCartItem2);
+    // console.log(existingCartItem);
     // console.log(exist.selectedProduct);
 };

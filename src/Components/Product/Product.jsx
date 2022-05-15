@@ -61,7 +61,6 @@ const Product = ({ product, toggleFav }) => {
     useEffect(() => {
         if (selectedProduct) {
             let index = size.indexOf(sizeState);
-            console.log(index);
             setAmount(price[index]);
             setSelectedProduct({
                 ...product,
