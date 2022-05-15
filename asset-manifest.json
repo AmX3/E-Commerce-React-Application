@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/E-Commerce-React-Application/static/css/main.7c3f6735.css",
-    "main.js": "/E-Commerce-React-Application/static/js/main.31b65639.js",
+    "main.css": "/E-Commerce-React-Application/static/css/main.57d37072.css",
+    "main.js": "/E-Commerce-React-Application/static/js/main.3c58ec9c.js",
     "static/media/Raspberry.jpeg": "/E-Commerce-React-Application/static/media/Raspberry.6a252fb2fc7f85d7ee98.jpeg",
     "static/media/Yuzu.jpeg": "/E-Commerce-React-Application/static/media/Yuzu.6699175de4e0a9262878.jpeg",
     "static/media/Mango.jpeg": "/E-Commerce-React-Application/static/media/Mango.f04de98233c720f39efb.jpeg",
     "static/media/Strawberry.jpeg": "/E-Commerce-React-Application/static/media/Strawberry.7336b0f45cb81072696b.jpeg",
     "index.html": "/E-Commerce-React-Application/index.html",
-    "main.7c3f6735.css.map": "/E-Commerce-React-Application/static/css/main.7c3f6735.css.map",
-    "main.31b65639.js.map": "/E-Commerce-React-Application/static/js/main.31b65639.js.map"
+    "main.57d37072.css.map": "/E-Commerce-React-Application/static/css/main.57d37072.css.map",
+    "main.3c58ec9c.js.map": "/E-Commerce-React-Application/static/js/main.3c58ec9c.js.map"
   },
   "entrypoints": [
-    "static/css/main.7c3f6735.css",
-    "static/js/main.31b65639.js"
+    "static/css/main.57d37072.css",
+    "static/js/main.3c58ec9c.js"
   ]
 }
